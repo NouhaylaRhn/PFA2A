@@ -1,0 +1,59 @@
+{% extends 'personal/header.html' %}
+
+{% block content %}
+
+
+    <h2>Fiches liiist</h2>
+
+ <table class="table mb-0">
+    <thead>
+      <tr>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>CIN</th>
+        <th>CNE</th>
+        <th>Téléphone</th>
+        <th>Lieu_de_naissance</th>
+        <th>Date_de_naissance</th>
+        <th>Adresse_physique</th>
+        <th>Sexe</th>
+        <th>Nationalité</th>
+        <th>pdf</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fiche in fiches %}
+        <tr>
+          
+          <td>{{ fiche.nom }}</td>
+          <td>{{ fiche.prenom }}</td>
+          <td>{{ fiche.CIN }}</td>
+          <td>{{ fiche.CNE }}</td>
+          <td>{{ fiche.Téléphone }}</td>
+          <td>{{ fiche.Lieu_de_naissance }}</td>
+          <td>{{ fiche.Date_de_naissance }}</td>
+          <td>{{ fiche.Adresse_physique }}</td>
+          <td>{{ fiche.Sexe }}</td>
+          <td>{{ fiche.Nationalité }}</td>
+          <td>
+          	<a href="{{ fiche.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+              Download PDF
+            </a>
+          </td>
+          
+        
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+   
+  
+
+ 
+{% endblock %}
+
+
+
+
+

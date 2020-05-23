@@ -1,0 +1,27 @@
+{% extends 'personal/header.html' %}
+
+{% block content %}
+
+ {% if messages %}
+        {% for message in messages %}
+          <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
+        {% endfor %}
+    {% endif %}
+
+	
+	<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+
+          <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Confirmer</button>
+
+    </form>
+            If you already have an account <a href="/login" target="blank"><strong>login</strong></a> instead.
+</div>
+
+
+{% endblock %}
+
+
+

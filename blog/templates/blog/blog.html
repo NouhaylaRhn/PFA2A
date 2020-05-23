@@ -1,0 +1,6 @@
+{% extends "personal/header.html" %}
+{% block content %}
+	{% for fiche_de_condidature in object_list %}
+		<h5>{{ fiche_de_condidature.nom }}<a href="/blog/{{fiche_de_condidature.id}}">  {{ post.CNE }}</a></h5>
+	{% endfor %}
+{% endblock %}
