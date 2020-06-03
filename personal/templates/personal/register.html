@@ -1,4 +1,15 @@
-{% extends 'personal/header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PFA</title>
+    <meta charset="utf-8" />
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'personal/css/register.css' %}" type = "text/css"/>
+    
+</head>
+
+<body>
 
 {% block content %}
 
@@ -9,19 +20,30 @@
     {% endif %}
 
 	
-	<div class="container">
+	<div class="muck-up">
+<div class="overlay">
     <form method="POST">
+ 
         {% csrf_token %}
         {{form.as_p}}
 
-          <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Confirmer</button>
+
+
+
+
+        <div class ="login">
+         
+          <button class="btn sign-in" type="submit" href="/fiches/upload/">Confirmer</button>   </div>
 
     </form>
-            If you already have an account <a href="/login" target="blank"><strong>login</strong></a> instead.
+
+              <div class = "header">
+              <p>  Si vous avez déja un compte , connectez vous </p> </div>
+               <a class="btn sign-in" href="/admin" >Se connecter</a> </div>
+
+
 </div>
-
-
 {% endblock %}
 
 
-
+</body>

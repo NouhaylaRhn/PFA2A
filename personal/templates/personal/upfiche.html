@@ -1,23 +1,48 @@
-{% extends 'personal/header.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>PFA</title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'personal/css/upfiche.css' %}" type = "text/css"/>
+	
+</head>
+<body>
 
 {% block content %}
 {% load crispy_forms_tags %}
 
+<div class = "muck-up">
+<div class ="overlay">
+<div class="header">
+<p> Veuillez remplir la fiche de condidature <p>  
 
 
 
 <form method="post" enctype="multipart/form-data">
+
+
     {% csrf_token %}
     {{ form|crispy }}
-    <button type="submit" class="btn btn-primary">Upload book</button>
+
+
+
+
+     <div class="login">
+    <button type="submit" class="btn sign-in">Envoyer</button> </div>
   </form>
 
-<h2>Upload fiches </h2>
 
- 
+ </div>
 
 
 {% endblock %}
 
+</div>
+</div>
 
-
+</body>
+</html>

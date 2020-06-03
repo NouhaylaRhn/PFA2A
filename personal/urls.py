@@ -12,7 +12,10 @@ urlpatterns = [
     url(r'^register/$', views.register, name='Register'),
     url(r'^upload/$', views.upload, name='upload'),
     url(r'^fiches/$', views.ficheList, name='ficheList'),
-    url(r'^fiches/upload/$', views.uploadFiche, name='uploadFiche'),
+    url(r'^uploadfiche/$', views.uploadFiche, name='uploadFiche'),
+    url(r'^logout/$', views.logout_request, name="logout"),
+    url(r'^login/$', views.login_request, name="login_request"),
+    url(r'^homee/$', views.panda, name="panda"),
 
 ]
 
