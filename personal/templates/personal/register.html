@@ -5,45 +5,71 @@
     <title>PFA</title>
     <meta charset="utf-8" />
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'personal/css/register.css' %}" type = "text/css"/>
+    <link rel="stylesheet" href="{% static 'personal/css/login.css' %}" type = "text/css"/>
     
 </head>
 
 <body>
-
 {% block content %}
+<div class="muck-uprr">
+<div class="overlay">
+<div class="header">
 
- {% if messages %}
+<div class="headerr">
+
+      <p>Concours nationale commun </p>
+      <h1> -Ecole nationale supérieure de l'informatique et d'analyse des systèmes- </h1>
+     
+    </div>
+
+
+{% if messages %}
         {% for message in messages %}
           <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
         {% endfor %}
-    {% endif %}
+{% endif %}
 
 	
-	<div class="muck-up">
-<div class="overlay">
-    <form method="POST">
- 
+
+<form method="POST">
+<div class ="loginnn">
+
         {% csrf_token %}
-        {{form.as_p}}
-
-
-
-
-
-        <div class ="login">
+        <!-- {% for field in form %}
+        <label for="username">{{ field.label }}</label>
          
-          <button class="btn sign-in" type="submit" href="/fiches/upload/">Confirmer</button>   </div>
+         {{ field }}
+                <!- {{form.as_p}} ->
+
+         {%endfor %} -->
+         {{form.username.label}}
+         {{form.username}}
+
+
+         {{form.email.label}}
+         {{form.email}}
+
+
+         {{form.password1.label}}
+         {{form.password1}}
+
+
+         {{form.password2.label}}
+         {{form.password2}} 
+          <div class="loginn"> <button  class="btn sign-in" type="submit">Confirmer</button> </div>
+          
 
     </form>
 
-              <div class = "header">
-              <p>  Si vous avez déja un compte , connectez vous </p> </div>
-               <a class="btn sign-in" href="/admin" >Se connecter</a> </div>
+       Si vous avez déja un compte :  <a href="/login" target="blank"><strong>connectez vous </strong></a> </p> </div>
+
+  
+              
 
 
-</div>
 {% endblock %}
-
-
+      
+ </div>
+</div>
+</div>
 </body>

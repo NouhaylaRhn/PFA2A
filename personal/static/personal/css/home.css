@@ -1,0 +1,121 @@
+
+
+html {
+  background: url("./ensias.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+body {
+  font: 100 5px/10px Roboto;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box
+}
+
+.clearfix:after,
+.clearfix:before {
+  content: '';
+  display: table
+}
+
+.clearfix:after {
+  clear: both;
+  display: block
+}
+
+.muck-up {
+  width: 850px;
+  height: 680px;
+  margin: 5em auto;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #fefefe;
+  background-color #FAEBD7
+
+}
+
+.overlay {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+ 
+}
+
+.content {
+  height:230%; 
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+.header {
+  text-align: center;
+  color: #fff;
+  size : 20px;
+  margin-top: 170px;
+}
+
+
+
+
+.header p {
+  font-size: 50px;
+  color : #e72d2d;
+
+}
+
+
+.header h1 {
+  font-size: 20px;
+  color : #fff;
+
+}
+
+.login {
+  padding: 0 10%;
+  margin-top: 100px;
+}
+
+.btn {
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 5px;
+  font-weight: 200;
+  padding: 10px 10px;
+  border-radius: 4px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+}
+
+.sign-in {
+  color: #fff;
+  font-size: 15px;
+  background: #586A74;
+  margin-bottom: 35px;
+  border-color: #4B5961;
+}
+
+
+

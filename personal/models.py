@@ -18,4 +18,3 @@ class Fiche_de_condidature (models.Model):
 
     def __str__(self):
         return self.nom
-

@@ -5,7 +5,7 @@
 <h2>Upload </h2>
 
 
-<!-- 
+
 <form method="post" enctype="multipart/form-data">
 {% csrf_token %}
 <input type="file" name="document">
@@ -13,15 +13,30 @@
 </form>
 
 
- <p> Uploaaaaad heeeeeeeeeeey </p>
+ 
  {% if url %}
     <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
   {% endif %}
+
+  <form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="file" name="document">
+<button type="submit">Upload </button>
+</form>
+
+   {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
  
--->
 {{request.user.username}}
 <p> a fiiiin  heeeeeeeeeeey </p>
+
+ <a class="btn sign-in" href="/homee">Verifier</a>
+
+
 {% endblock %}
+
+
 
 
 

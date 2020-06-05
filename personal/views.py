@@ -4,13 +4,18 @@ from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from .forms import NewUserForm
-
-
+from django.http import HttpResponse
 import pandas as pd 
-
 from .forms import FicheForm, NewUserForm
 from .models import Fiche_de_condidature
+from django.http import JsonResponse
+import numpy as np
+from django import forms
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import user_passes_test
 
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 def index(request):
@@ -104,13 +109,21 @@ def upload(request):
 
 
 
+'''class MyView(UserPassesTestMixin, View):
+    def test_func(self):
+        return self.request.user.is_superuser
+'''
+
+def check_admin(user):
+   return user.is_superuser 
 
 
+#@method_decorator(login_required)
+#@login_required(check_admin)
+#@login_required
 
-
-
-
-
+#@permission_required("personal.view_fiche_de_condidature")
+@user_passes_test(lambda u: u.is_superuser)
 def ficheList(request):
     fiches = Fiche_de_condidature.objects.all()
     return render(request, 'personal/fiches.html' , {
@@ -137,20 +150,28 @@ def uploadFiche(request):
 
 
 def panda(request):
+    result = ''
+    #if request.method == 'post':
     sheet1 = pd.read_excel(r'C:\Users\Pc\Desktop\PFA\excel1.xlsx') 
     sheet2 = pd.read_excel(r'C:\Users\Pc\Desktop\PFA\excel2.xlsx') 
-    for i,j in zip(sheet1,sheet2):
-        a,b =[],[] 
-        for m, n in zip(sheet1[i],sheet2[j]):
-	        a.append(m) 
-	        b.append(n) 
-        a.sort() 
-        b.sort() 
-        for m, n in zip(range(len(a)), range(len(b))):    
-            if a[m] != b[n]:
-                #print('Column name : \'{}\' and Row Number : {}'.format(i,m)) 
-            
-   
-    return render(request, 'personal/homee.html')	
-			
+    sheet1.equals(sheet2)
+    comparison_values = sheet1.values == sheet2.values
+    print (comparison_values)
+    #return JsonResponse({'bbb': comparison_values})
+    rows,cols=np.where(comparison_values==False)
+    for item in zip(rows,cols):
+        sheet1.iloc[item[0], item[1]] = '{} --> {}'.format(sheet1.iloc[item[0], item[1]],sheet2.iloc[item[0], item[1]])
+    #sheet1.to_excel('./Excel_diff.xlsx',index=False,header=True)
+    sheet1.to_html('./personal/templates/personal/homee.html',index=False,header=True)
+    '''text_file = open("Excel_diff.xlsx", "w")
+    text_file.write(html)
+    text_file.close()'''
+    #context = {'comparison_values': comparison_values}
+    return render(request, 'personal/homee.html' )
+
+
+
+
+
+
 
