@@ -1,0 +1,58 @@
+
+
+<head>
+    <title>PFA</title>
+    <meta charset="utf-8" />
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'personal/css/login.css' %}" type = "text/css"/>
+    
+</head>
+
+<body>
+
+{% block content %}
+
+<div class="muck-uprr">
+<div class="overlay">
+<div class="header">
+
+    <div class="headerr">
+
+      <p>Concours nationale commun </p>
+      <h1> -Ecole nationale supérieure de l'informatique et d'analyse des systèmes- </h1>
+     
+    </div>
+        <form method="POST">
+
+        <div class="login">
+        
+        <p>
+        {% csrf_token %}
+        <!-- {{form.as_p}} -->
+
+         {{form.username.label}}
+         {{form.username}}
+
+
+         {{form.password.label}}
+         {{form.password}}
+
+           <div class="loginn"> <button  class="btn sign-in" type="submit">Confirmer</button> </div>
+        </form>
+        Si vous n'avez pas encore inscrit Veuillez contacter <a href="/register" target="blank"><strong>le service des examens 
+        </strong></a> 
+
+
+        </p> </div>
+
+
+       
+   
+{% endblock %}
+
+ </div>
+</div>
+</div>
+
+
+</body>

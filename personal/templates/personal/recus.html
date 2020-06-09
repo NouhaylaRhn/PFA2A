@@ -1,0 +1,63 @@
+
+<head>
+  <title>PFA</title>
+  <meta charset="utf-8" />
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'personal/css/fiches.css' %}" type = "text/css"/>
+  
+</head>
+<body>
+
+{% block content %}
+
+
+<div class="headerr">
+
+      <p>Concours nationale commun </p>
+      <h1> -Ecole nationale supérieure de l'informatique et d'analyse des systèmes- </h1> 
+      
+      <a href="/homeerecu" class="button" >Vérifier les donnée </a>
+
+
+
+ <table class="table mb-0">
+    <thead>
+      <tr>
+        
+        <th>Nom</th>
+        <th>Téléphone</th>
+        <th>Email</th>
+        <th>pdf</th>  
+      </tr>
+    </thead>
+    <tbody>
+      {% for recu in recus %}
+        <tr>
+          
+          <td>{{ recu.Nom }}</td>
+          <td>{{ recu.Téléphone }}</td>
+          <td>{{ recu.Email }}</td>
+          <td>
+          	<a href="{{ recu.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+              Download PDF
+            </a>
+          </td>
+          
+        
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/exportrecu" class="button" >Enregistrer </a>
+</div>
+
+   
+  
+
+ 
+{% endblock %}
+
+
+
+
+
