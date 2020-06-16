@@ -1,5 +1,4 @@
 
-
 html {
  background: url("./ensias.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -293,6 +292,24 @@ input[type="checkbox"] + span {
   border: 2px solid transparent;
 }
 
+
+.buttonn {
+  padding: 15px 20px;
+  border: 2px solid gray;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700; 
+  
+  text-decoration: none;
+  color: white;
+  
+  &:hover,
+  &.is-active {
+    color: white;
+    background-color: white;
+  }
+}
+
 .button:hover {
   background: #aaf0d1;
   box-shadow: 0 0 10px #aaf0d1, 0 0 30px #aaf0d1, 0 0 50px #aaf0d1;
@@ -375,3 +392,145 @@ footer .fp a:hover {
     width: 90%;
   }
 }
+
+
+
+
+
+
+
+
+main {
+  width: 100vw; 
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 55px;
+}
+
+p {
+  line-height: 1.5
+}
+
+nav {
+  margin-top: -240px;
+  margin-left: -130px;
+}
+
+
+
+
+.loginnn {
+  padding: 0 10%;
+  margin-top: 100px;
+  margin-left: 1px;
+}
+
+
+
+.navbar-global {
+  background-color: indigo;
+}
+
+.navbar-global .navbar-brand {
+  color: white;
+}
+
+.navbar-global .navbar-user > li > a
+{
+  color: white;
+}
+
+.navbar-primary {
+  background-color: #333;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 51px;
+  width: 200px;
+  z-index: 8;
+  overflow: hidden;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.navbar-primary.collapsed {
+  width: 60px;
+}
+
+.navbar-primary.collapsed .glyphicon {
+  font-size: 22px;
+}
+
+.navbar-primary.collapsed .nav-label {
+  display: none;
+}
+
+.btn-expand-collapse {
+    position: absolute;
+    display: block;
+    left: 0px;
+    bottom:0;
+    width: 100%;
+    padding: 8px 0;
+    border-top:solid 1px #666;
+    color: grey;
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn-expand-collapse:hover,
+.btn-expand-collapse:focus {
+    background-color: #222;
+    color: white;
+}
+
+.btn-expand-collapse:active {
+    background-color: #111;
+}
+
+.navbar-primary-menu,
+.navbar-primary-menu li {
+  margin:0; padding:0;
+  list-style: none;
+}
+
+.navbar-primary-menu li a {
+  display: block;
+  padding: 10px 18px;
+  text-align: left;
+  border-bottom:solid 1px #444;
+  color: #ccc;
+}
+
+.navbar-primary-menu li a:hover {
+  background-color: #000;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-primary-menu li a .glyphicon {
+  margin-right: 6px;
+}
+
+.navbar-primary-menu li a:hover .glyphicon {
+  color: orchid;
+}
+
+.main-content {
+  margin-top: 60px;
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.collapsed + .main-content {
+  margin-left: 60px;
+}
+

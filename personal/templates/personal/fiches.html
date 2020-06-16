@@ -1,14 +1,45 @@
 
+<head>
+  <title>PFA</title>
+  <meta charset="utf-8" />
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'personal/css/fiches.css' %}" type = "text/css"/>
+  
+</head>
+<body>
 
 {% block content %}
 
 
-    <h2>La liste des fiches de condidatures</h2>
+<div class="headerr">
+
+      <p>Concours nationale commun </p>
+      <h1> -Ecole nationale supérieure de l'informatique et d'analyse des systèmes- </h1> 
+      
+      <a href="/homee" class="button" >Vérifier les donnée </a>
+      <a href="/homeerecu" class="button" >Vérifier le reçu de paiment </a>
+      <a href="/homeecarte" class="button" >Vérifier la carte nationale</a>
+<!-- 
+<main>
+  <div class="wrapper">
+    <nav>
+      <a href="#" class="button" >Enregistrer </a>
+      <a href="#" class="button" >Listes de condidature</a>
+      <a href="#" class="button" >Notice CNC-2020</a>
+      <a href="#" class="button" >Guide d'inscription</a>
+      <a href="#" class="button" >Résultats</a>
+      <a href="#" class="button" >Nouveautés</a>
+      <a href="/logout" class="button" >Se déconnecter</a>
+    </nav>
+  </div>
+</main>  -->
+
 
  <table class="table mb-0">
     <thead>
       <tr>
-        <th>nom</th>
+        
+      <th>nom</th>
         <th>prenom</th>
         <th>CIN</th>
         <th>CNE</th>
@@ -18,7 +49,7 @@
         <th>Adresse_physique</th>
         <th>Sexe</th>
         <th>Nationalité</th>
-        <th>pdf</th>
+         
       </tr>
     </thead>
     <tbody>
@@ -35,17 +66,19 @@
           <td>{{ fiche.Adresse_physique }}</td>
           <td>{{ fiche.Sexe }}</td>
           <td>{{ fiche.Nationalité }}</td>
-          <td>
-          	<a href="{{ fiche.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+         <!-- <td>
+          	 <a href="{{ fiche.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
               Download PDF
-            </a>
-          </td>
+            </a>  
+          </td> -->
           
         
         </tr>
       {% endfor %}
     </tbody>
   </table>
+  <a href="/export" class="button" >Enregistrer </a>
+</div>
 
    
   

@@ -51,12 +51,9 @@
 </div>
 
  <div class="login">
-
-
- 
 <form method="post" id="msform" enctype="multipart/form-data">
 
- 
+<p> Bienvenue : <strong>{{request.user.username}} </strong>    Veuillez remplir la fiche de condidature <p>  
 
 
 
@@ -69,12 +66,6 @@
 
     {{ form.CIN.label }}
     {{form.CIN}}
-
-    {{ form.CNE.label }}
-    {{form.CNE}}
-
-    {{ form.Téléphone.label }}
-    {{form.Téléphone}}
 
     {{ form.Lieu_de_naissance.label }}
     {{form.Lieu_de_naissance}}
@@ -102,13 +93,14 @@
 
     
     <button type="submit" class="btn sign-in">Envoyer</button> 
-
-
-<p> Merci de remplir également les informations relatives a la <a href="/upcarte" >Carte nationale</a> et <a href="/uprecu"  >Reçu de paiment</a> </p>
+    
+    <p> Merci de remplir également les informations relatives a la <a href="/upcarte" >Carte nationale</a> et <a href="/uprecu"  >Reçu de paiment</a> </p>
 
 
 
   </form> </div> 
+
+
 
 
 
@@ -118,6 +110,5 @@
 
 </div>
 </div>
-
 </body>
 

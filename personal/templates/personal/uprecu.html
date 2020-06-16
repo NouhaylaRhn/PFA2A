@@ -30,6 +30,9 @@
 
 
 
+
+
+
 <main>
   <div class="wrapper">
     <nav>
@@ -44,7 +47,14 @@
   </div>
 </main>
 
+
+
+
+
+ 
    </div>
+
+  
 
 
 
@@ -53,7 +63,6 @@
  <div class="login">
 
 
- 
 <form method="post" id="msform" enctype="multipart/form-data">
 
  
@@ -61,35 +70,14 @@
 
 
     {% csrf_token %}
-    {{ form.nom.label }}
-    {{form.nom}}
-
-    {{ form.prenom.label }}
-    {{form.prenom}}
-
-    {{ form.CIN.label }}
-    {{form.CIN}}
-
-    {{ form.CNE.label }}
-    {{form.CNE}}
+    {{ form.Nom.label }}
+    {{form.Nom}}
 
     {{ form.Téléphone.label }}
     {{form.Téléphone}}
 
-    {{ form.Lieu_de_naissance.label }}
-    {{form.Lieu_de_naissance}}
-
-    {{ form.Date_de_naissance.label }}
-    {{form.Date_de_naissance}}
-
-    {{ form.Adresse_physique.label }}
-    {{form.Adresse_physique}}
-
-    {{ form.Sexe.label }}
-    {{form.Sexe}}
-
-    {{ form.Nationalité.label }}
-    {{form.Nationalité}}
+    {{ form.Email.label }}
+    {{form.Email}}
 
     {{ form.pdf.label }}
     {{form.pdf}}
@@ -102,13 +90,14 @@
 
     
     <button type="submit" class="btn sign-in">Envoyer</button> 
-
+   
 
 <p> Merci de remplir également les informations relatives a la <a href="/upcarte" >Carte nationale</a> et <a href="/uprecu"  >Reçu de paiment</a> </p>
 
 
-
   </form> </div> 
+
+
 
 
 
@@ -118,6 +107,5 @@
 
 </div>
 </div>
-
 </body>
 

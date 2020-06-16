@@ -1,0 +1,73 @@
+
+<head>
+  <title>PFA</title>
+  <meta charset="utf-8" />
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'personal/css/fiches.css' %}" type = "text/css"/>
+  
+</head>
+<body>
+
+{% block content %}
+
+
+<div class="headerr">
+
+      <p>Concours nationale commun </p>
+      <h1> -Ecole nationale supérieure de l'informatique et d'analyse des systèmes- </h1> 
+      
+      <a href="/homeecarte" class="button" >Vérifier les donnée </a>
+
+
+ <table class="table mb-0">
+    <thead>
+      <tr>
+        
+        <th>nom</th>
+        <th>prenom</th>
+        <th>CIN</th>
+        <th>Lieu_de_naissance</th>
+        <th>Date_de_naissance</th>
+        <th>Adresse_physique</th>
+        <th>Sexe</th>
+        <th>Nationalité</th>
+        <th>pdf</th>  
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for carte in cartes %}
+        <tr>
+          
+          <td>{{ carte.nom }}</td>
+          <td>{{ carte.prenom }}</td>
+          <td>{{ carte.CIN }}</td>
+          <td>{{ carte.Lieu_de_naissance }}</td>
+          <td>{{ carte.Date_de_naissance }}</td>
+          <td>{{ carte.Adresse_physique }}</td>
+          <td>{{ carte.Sexe }}</td>
+          <td>{{ carte.Nationalité }}</td>
+          <td>
+          	<a href="{{ carte.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+              Download PDF
+            </a>
+          </td>
+          
+        
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/exportcarte" class="button" >Enregistrer </a>
+</div>
+
+   
+  
+
+ 
+{% endblock %}
+
+
+
+
+

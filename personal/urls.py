@@ -12,11 +12,20 @@ urlpatterns = [
     url(r'^register/$', views.register, name='Register'),
     url(r'^upload/$', views.upload, name='upload'),
     url(r'^fiches/$', views.ficheList, name='ficheList'),
+    url(r'^recus/$', views.RecuList, name='RecuList'),
+    url(r'^cartes/$', views.CarteList, name='CarteList'),
     url(r'^uploadfiche/$', views.uploadFiche, name='uploadFiche'),
+    url(r'^uprecu/$', views.uploadRecu, name='uploadRecu'),
+    url(r'^upcarte/$', views.uploadCarte, name='uploadCarte'),
     url(r'^logout/$', views.logout_request, name="logout"),
     url(r'^login/$', views.login_request, name="login_request"),
+    url(r'^loginadmin/$', views.login_admin, name="login_admin"),
     url(r'^homee/$', views.panda, name="panda"),
-
+    url(r'^homeerecu/$', views.pandarecu, name="pandarecu"),
+    url(r'^homeecarte/$', views.pandacarte, name="pandacarte"),
+    url(r'^export/$', views.export_excel, name="export_excel"),
+    url(r'^exportrecu/$', views.export_recu, name="export_recu"),
+    url(r'^exportcarte/$', views.export_carte, name="export_carte"),
 ]
 
 if settings.DEBUG:
