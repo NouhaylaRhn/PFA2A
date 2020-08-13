@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'import_export',
     'crispy_forms',
+    'easy_pdf',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

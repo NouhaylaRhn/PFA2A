@@ -38,7 +38,7 @@ class Carte (models.Model):
     prenom = models.CharField(max_length = 140 , default='')
     CIN = models.CharField(max_length = 140 , default='')
     Lieu_de_naissance = models.CharField(max_length = 140 , default='')
-    Date_de_naissance = models.DateField()
+    #Date_de_naissance = models.DateField()
     Adresse_physique = models.CharField(max_length = 140 , default='')
     Sexe = models.CharField(max_length = 140 , default='')
     Nationalité = models.CharField(max_length = 140 , default='')

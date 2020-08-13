@@ -26,6 +26,15 @@ urlpatterns = [
     url(r'^export/$', views.export_excel, name="export_excel"),
     url(r'^exportrecu/$', views.export_recu, name="export_recu"),
     url(r'^exportcarte/$', views.export_carte, name="export_carte"),
+    url(r'^adminprofile/$', views.adminprofile, name="adminprofile"),
+    url(r'^tipe/$', views.tipe, name="tipe"),
+    url(r'^resultat/$', views.resultat, name="resultat"),
+    url(r'^recus/(?P<id>\d+)/$', views.delete_recus, name='delete_recus'),
+    
+    
+
+
+    
 ]
 
 if settings.DEBUG:

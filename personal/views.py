@@ -19,9 +19,38 @@ from .models import Fiche_de_condidature
 from import_export import resources
 import xlwt
 import xlsxwriter
+import pickle
+
+
 
 def index(request):
     return render(request, 'personal/home.html')
+
+def adminprofile(request):
+    return render(request, 'personal/adminprofile.html')
+
+def resultat(request):
+    return render(request, 'personal/resultat.html')
+
+
+def tipe(request):
+    pickle_in = open("C:/Users/Pc/Desktop/PFA/site/mysite/output.pickle","rb")
+    #pickle_in = open("C:/Users/Pc/Desktop/PFA/output.pickle","rb")
+    output = pickle.load(pickle_in)
+    context = {'output': output } 
+    #for item in output:
+    #    print(item[0])
+    
+    print(output[0][0])
+    #mydict = dict(output)
+    #print(mydict)
+    #return render('tipe.html' ,{'mydict':mydict})
+    return render (request, 'personal/tipe.html' , context)
+
+
+
+
+
 
 
 
@@ -84,7 +113,7 @@ def login_admin(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}")
-                return redirect('/fiches')
+                return redirect('/adminprofile')
             else:
                 messages.error(request, "Invalid username or password.")
         else:
@@ -263,12 +292,12 @@ def export_carte(request):
     row_num = 0
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
-    columns = ['nom', 'prenom', 'CIN' , 'Lieu_de_naissance' , 'Date_de_naissance' , 'Adresse_physique' , 'Sexe' , 'Nationalité', ]
+    columns = ['nom', 'prenom', 'CIN' , 'Lieu_de_naissance' , 'Adresse_physique' , 'Sexe' , 'Nationalité', ]
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
     # Sheet body, remaining rows
     font_style = xlwt.XFStyle()
-    rows = Carte.objects.all().values_list('nom', 'prenom', 'CIN' , 'Lieu_de_naissance' , 'Date_de_naissance' , 'Adresse_physique' , 'Sexe' , 'Nationalité')
+    rows = Carte.objects.all().values_list('nom', 'prenom', 'CIN' , 'Lieu_de_naissance'  , 'Adresse_physique' , 'Sexe' , 'Nationalité')
     for row in rows:
         row_num += 1
         for col_num in range(len(row)):
@@ -344,11 +373,17 @@ def pandarecu(request):
         sheet1.iloc[item[0], item[1]] = '{} --> {}'.format(sheet1.iloc[item[0], item[1]],sheet2.iloc[item[0], item[1]])
     #sheet1.to_excel('./Excel_diff.xlsx',index=False,header=True)
     sheet1.to_html('./personal/templates/personal/homeerecu.html',index=False,header=True)
-    '''text_file = open("Excel_diff.xlsx", "w")
-    text_file.write(html)
-    text_file.close()'''
     #context = {'comparison_values': comparison_values}
     return render(request, 'personal/homeerecu.html' )
+
+
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def delete_recus(request, id):
+    recus = Recu.objects.get(pk=id)
+    recus.delete()
+    return redirect("/recus")
 
 
 
