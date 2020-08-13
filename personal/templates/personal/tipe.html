@@ -1,0 +1,51 @@
+
+<head>
+  <title>PFA</title>
+  <meta charset="utf-8" />
+  {% load staticfiles %}
+  
+</head>
+<body>
+  <link rel="stylesheet" href="{% static 'personal/css/tipe.css' %}" type = "text/css"/>
+
+{% block content %}
+
+
+<div class="headerr">
+
+      <p>Concours nationale commun </p>
+      <h1> -Ecole nationale supérieure de l'informatique et d'analyse des systèmes- </h1>
+
+
+
+
+ <h1> Les documents TIPE classés par sujet :  <h1>
+
+<table align="center">
+    <thead>
+      <tr>
+
+
+        <th>Sujet </th>
+        <th>Catégorie</th>
+        
+       
+      </tr>
+    </thead>
+    <tbody>
+
+       {% for label, text in output %}
+        <tr>
+        
+          <td>{{ text }} </td>
+          <td>{{ label }}</td>
+          
+               
+        </tr>
+      {% endfor %} 
+    </tbody>
+  </table>
+
+
+
+  {% endblock %}
